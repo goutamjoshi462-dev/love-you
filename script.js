@@ -9,7 +9,7 @@
 // If you host your song online (e.g. Cloudinary, Supabase, or Catbox), paste the direct URL here!
 // If left empty, it streams the local audio file automatically.
 // =============================================================================
-const ONLINE_STREAM_URL = "";
+const ONLINE_STREAM_URL = "https://res.cloudinary.com/ruewlmpp/video/upload/v1792565496/Video_Project_1.mp3";
 
 // =============================================================================
 // 1. MEMORY ARCHIVE (ALL 36 PHOTOS WITH ROMANTIC CAPTIONS)
