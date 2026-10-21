@@ -182,11 +182,53 @@ class FloatingBackdrop {
         isHovered: false
       };
 
-      // Hover / Touch interaction
-      el.addEventListener('mouseenter', () => { itemData.isHovered = true; });
-      el.addEventListener('mouseleave', () => { itemData.isHovered = false; });
+      // Pointer / Hover / Touch interaction for seamless mobile & desktop support
+      let pStartX = 0;
+      let pStartY = 0;
+      let pStartTime = 0;
+      let isPointerActive = false;
 
-      // Click / Tap to view spotlight
+      el.addEventListener('mouseenter', () => {
+        itemData.isHovered = true;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        if (!isPointerActive) itemData.isHovered = false;
+      });
+
+      el.addEventListener('pointerdown', (e) => {
+        isPointerActive = true;
+        itemData.isHovered = true; // Freeze motion instantly on press/touch
+        pStartX = e.clientX;
+        pStartY = e.clientY;
+        pStartTime = Date.now();
+      });
+
+      el.addEventListener('pointerup', (e) => {
+        const dx = Math.abs(e.clientX - pStartX);
+        const dy = Math.abs(e.clientY - pStartY);
+        const dt = Date.now() - pStartTime;
+        isPointerActive = false;
+
+        // If it was an intentional tap or click (drag < 18px, time < 700ms)
+        if (dx < 18 && dy < 18 && dt < 700) {
+          e.stopPropagation();
+          openSpotlight(index);
+        }
+
+        setTimeout(() => {
+          if (!el.matches(':hover')) {
+            itemData.isHovered = false;
+          }
+        }, 300);
+      });
+
+      el.addEventListener('pointercancel', () => {
+        isPointerActive = false;
+        itemData.isHovered = false;
+      });
+
+      // Direct click handler fallback
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         openSpotlight(index);

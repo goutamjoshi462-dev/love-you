@@ -175,7 +175,7 @@ body {
   inset: 0;
   background: radial-gradient(circle at center, transparent 45%, rgba(10, 4, 8, 0.22) 100%);
   pointer-events: none;
-  z-index: 5;
+  z-index: 2;
   transition: opacity 0.5s ease;
 }
 
@@ -193,7 +193,7 @@ body {
   height: 100vh;
   overflow: hidden;
   pointer-events: auto;
-  z-index: 4;
+  z-index: 8;
 }
 
 .floating-photo-item {
@@ -207,6 +207,10 @@ body {
   padding: 5px 5px 16px 5px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), 0 0 12px rgba(255, 235, 240, 0.3);
   user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
   border: 1px solid rgba(255, 255, 255, 0.95);
 }
 
@@ -296,6 +300,12 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  pointer-events: none;
+}
+
+.top-nav .brand-pill,
+.top-nav .nav-actions {
+  pointer-events: auto;
 }
 
 .brand-pill {
@@ -411,6 +421,11 @@ body {
   max-width: 680px;
   width: 100%;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.hero-container > * {
+  pointer-events: auto;
 }
 
 .love-card.morphy-glass {
