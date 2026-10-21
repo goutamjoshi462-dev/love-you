@@ -231,7 +231,7 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
-  background: #180812;
+  background: linear-gradient(135deg, #faedf0 0%, #f7dce2 100%);
   pointer-events: none;
 }
 

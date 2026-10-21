@@ -138,7 +138,7 @@ class FloatingBackdrop {
       el.style.height = `${dims.height}px`;
 
       el.innerHTML = `
-        <img src="photos/${mem.file}" alt="${mem.caption}" loading="lazy">
+        <img src="photos/${mem.file}" alt="${mem.caption}" loading="eager" decoding="async">
         <span class="photo-caption-tag">${mem.caption}</span>
       `;
 
@@ -693,6 +693,13 @@ function updateSpotlightPhoto(dir) {
 // 9. INITIALIZATION & EVENT LISTENERS
 // =============================================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Preload all 36 memories in memory cache for instantaneous rendering
+  MEMORIES.forEach(m => {
+    const pre = new Image();
+    pre.decoding = 'async';
+    pre.src = `photos/${m.file}`;
+  });
+
   // 1. Initialize Floating Photo Backdrop
   const floatingContainer = document.getElementById('floatingPhotosContainer');
   const backdrop = new FloatingBackdrop(floatingContainer, MEMORIES);
