@@ -5,6 +5,13 @@
  */
 
 // =============================================================================
+// STREAMING MUSIC CONFIGURATION
+// If you host your song online (e.g. Cloudinary, Supabase, or Catbox), paste the direct URL here!
+// If left empty, it streams the local audio file automatically.
+// =============================================================================
+const ONLINE_STREAM_URL = "";
+
+// =============================================================================
 // 1. MEMORY ARCHIVE (ALL 36 PHOTOS WITH ROMANTIC CAPTIONS)
 // =============================================================================
 const MEMORIES = [
@@ -399,6 +406,9 @@ class PinkFloydAudio {
     this.timer = null;
     this.step = 0;
     this.audioEl = document.getElementById('pinkFloydAudio');
+    if (this.audioEl && typeof ONLINE_STREAM_URL === 'string' && ONLINE_STREAM_URL.trim() !== '') {
+      this.audioEl.src = ONLINE_STREAM_URL.trim();
+    }
     this.isUsingRealAudio = false;
   }
 
@@ -468,12 +478,16 @@ class PinkFloydAudio {
     });
   }
 
-  // Play user's trimmed audio: Pink Floyd - Wish You Were Here (1975)
+  // Play user's audio: Pink Floyd - Wish You Were Here (1975)
   startMelody() {
     this.isPlaying = true;
 
-    // Play trimmed audio (Video Project 1.m4a)
     if (this.audioEl) {
+      // Prime audio if not ready
+      if (this.audioEl.readyState === 0) {
+        try { this.audioEl.load(); } catch (e) {}
+      }
+
       const playPromise = this.audioEl.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
@@ -484,9 +498,25 @@ class PinkFloydAudio {
             musicToggleBtn.querySelector('.music-label').textContent = 'Wish You Were Here 🎸';
           }
         }).catch((err) => {
-          console.warn('Real audio play blocked or failed, falling back to synthesizer:', err);
-          this.isUsingRealAudio = false;
-          this.startGuitarSynthesizer();
+          console.warn('Real audio play error, retrying on user gesture:', err);
+          // If first attempt fails (e.g. mobile restriction or buffering), retry once
+          const retryPlay = () => {
+            this.audioEl.play().then(() => {
+              this.isUsingRealAudio = true;
+              const musicToggleBtn = document.getElementById('musicToggleBtn');
+              if (musicToggleBtn) {
+                musicToggleBtn.classList.add('playing');
+                musicToggleBtn.querySelector('.music-label').textContent = 'Wish You Were Here 🎸';
+              }
+            }).catch(() => {
+              this.isUsingRealAudio = false;
+              this.startGuitarSynthesizer();
+            });
+            document.removeEventListener('click', retryPlay);
+            document.removeEventListener('touchend', retryPlay);
+          };
+          document.addEventListener('click', retryPlay, { once: true });
+          document.addEventListener('touchend', retryPlay, { once: true });
         });
         return;
       }
