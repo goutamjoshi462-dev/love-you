@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Good Morning, My Love ☀️ Wish You Were Here</title>
-  <meta name="description" content="A romantic good morning webpage with floating memories, Pink Floyd Wish You Were Here, and a heartfelt message for my love.">
+  <title>For My Love ❤️ Wish You Were Here</title>
+  <meta name="description" content="A romantic sanctuary with floating memories, Pink Floyd Wish You Were Here, and a heartfelt message for my love.">
   
   <!-- Romantic Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,29 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Romantic Fullscreen Loading Sanctuary -->
+  <div id="romanticLoader" class="romantic-loader">
+    <div class="loader-content morphy-glass">
+      <div class="loader-heart-wrapper">
+        <div class="heart-ripple ripple-1"></div>
+        <div class="heart-ripple ripple-2"></div>
+        <span class="loader-heart">💖</span>
+      </div>
+      
+      <h2 class="loader-title">Preparing Something Special For You...</h2>
+      <p class="loader-subtitle" id="loaderStatusText">Gathering our sweetest memories, please wait a moment ✨</p>
+      
+      <div class="loader-progress-track">
+        <div class="loader-progress-bar" id="loaderProgressBar"></div>
+      </div>
+      <div class="loader-percentage" id="loaderPercentage">0%</div>
+      
+      <div class="loader-floating-sparks">
+        <span>✨</span><span>🌸</span><span>💫</span><span>💕</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Ambient Atmospheric Canvas (Petals, Sparkles, Floating Hearts) -->
   <canvas id="ambientCanvas"></canvas>
 
@@ -69,16 +92,16 @@
     </div>
   </header>
 
-  <!-- Central Experience: The Morning Love Sanctuary (Ultra-Translucent Morphy Glass) -->
+  <!-- Central Experience: The Love Sanctuary (Ultra-Translucent Morphy Glass) -->
   <main class="hero-container" id="heroContainer">
     <div class="love-card morphy-glass card-minimized" id="mainLoveCard">
       <!-- Card Header Utilities -->
       <div class="card-top-bar">
-        <!-- Morning Badge -->
+        <!-- Love Badge -->
         <div class="morning-badge">
-          <span class="sun-spin">☀️</span>
-          <span class="date-string" id="currentDateStr">A Brand New Morning</span>
-          <span class="sparkle">✨</span>
+          <span class="sun-spin">✨</span>
+          <span class="date-string" id="currentDateStr">Always & Forever</span>
+          <span class="sparkle">💖</span>
         </div>
 
         <!-- Quick Peek Photos Button -->
@@ -89,7 +112,7 @@
 
       <!-- Main Headline with Editable Sweet Name -->
       <h1 class="hero-greeting">
-        Good Morning,
+        I Love You,
         <span class="partner-name-wrapper" title="Click to customize nickname">
           <span id="partnerNameDisplay" class="partner-name">My Love</span>
           <button id="editNameBtn" class="edit-name-btn" aria-label="Edit Nickname">✎</button>
@@ -97,17 +120,17 @@
       </h1>
 
       <p class="hero-subtitle" id="greetingTimeText">
-        The world just woke up, but you've been shining in my heart all night.
+        No matter the time or distance, you are always shining in my heart.
       </p>
 
-      <!-- The Daily Morning Whisper (Featuring Your Heartfelt Morning Message) -->
+      <!-- The Daily Whisper (Featuring Your Heartfelt Message) -->
       <div class="whisper-card morphy-inner-glass">
         <div class="whisper-quote-mark left">“</div>
         <p class="whisper-text" id="whisperText">
-          I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra this morninggg. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye.
+          I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra todayyy. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye.
         </p>
         <div class="whisper-quote-mark right">”</div>
-        <button id="nextWhisperBtn" class="next-whisper-btn" title="Get another sweet morning thought">
+        <button id="nextWhisperBtn" class="next-whisper-btn" title="Get another sweet love note">
           <span class="shuffle-icon">↻</span> Another Love Note
         </button>
       </div>
@@ -128,7 +151,7 @@
           </div>
         </button>
 
-        <!-- Send Morning Hugs & Kisses -->
+        <!-- Send Hugs & Kisses -->
         <button id="sendKissBtn" class="action-btn kiss-btn morphy-btn">
           <span class="btn-icon kiss-emoji">💋</span>
           <div class="btn-text">
@@ -160,12 +183,12 @@
     <!-- Floating Center Pill: Click to open message and start music -->
     <div class="minimized-pill morphy-glass" id="minimizedCardPill">
       <span class="pulse-heart">❤️</span>
-      <span class="pill-msg">Good Morning, <strong class="letter-name-var">My Love</strong> ☀️</span>
+      <span class="pill-msg">I Love You, <strong class="letter-name-var">My Love</strong> 💖</span>
       <button id="restoreCardBtn" class="restore-card-btn">Open Message 💌</button>
     </div>
   </main>
 
-  <!-- MODAL: Handwritten Morning Love Letter (Translucent Morphy Glass Parchment) -->
+  <!-- MODAL: Handwritten Love Letter (Translucent Morphy Glass Parchment) -->
   <div class="modal-overlay" id="letterModal" aria-hidden="true">
     <div class="modal-backdrop" id="closeLetterBackdrop"></div>
     <div class="letter-modal-content">
@@ -178,7 +201,7 @@
         
         <div class="letter-paper">
           <div class="letter-header">
-            <span class="letter-date" id="letterDateDisplay">Morning Sunrise</span>
+            <span class="letter-date" id="letterDateDisplay">Always In My Heart</span>
             <span class="letter-salutation">My Dearest <span class="letter-name-var">Love</span>,</span>
           </div>
 
@@ -187,7 +210,7 @@
             <div class="heartfelt-highlight-box">
               <span class="heart-spark">💖</span>
               <p class="highlight-text">
-                "I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra this morninggg. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye."
+                "I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra todayyy. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye."
               </p>
             </div>
 
@@ -201,7 +224,7 @@
               Every single picture floating behind this letter is a little piece of magic we’ve shared. Your laughter, your kindness, the way you light up any room without even trying—it’s my favorite wonder in this whole world.
             </p>
             <p>
-              Have the most wonderful morning, eat something yummy, and conquer your day knowing that someone right here is always cheering for you, missing you, and loving you more than words could ever fit on a page.
+              Have the most wonderful day, eat something yummy, and conquer everything knowing that someone right here is always cheering for you, missing you, and loving you more than words could ever fit on a page.
             </p>
           </div>
 

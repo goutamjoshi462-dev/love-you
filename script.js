@@ -30,16 +30,16 @@ const MEMORIES = [
   { id: 20, file: 'IMG-20260202-WA0070.jpg', caption: 'Cherishing you every single day 💖', likes: 18 },
   { id: 21, file: 'IMG-20260202-WA0071.jpg', caption: 'Golden memories with my girl 👑', likes: 26 },
   { id: 22, file: 'IMG-20260202-WA0072.jpg', caption: 'My dream come true 🌙', likes: 34 },
-  { id: 23, file: 'IMG-20260202-WA0073.jpg', caption: 'The sweetest morning light 🕊️', likes: 15 },
+  { id: 23, file: 'IMG-20260202-WA0073.jpg', caption: 'The sweetest golden light 🕊️', likes: 15 },
   { id: 24, file: 'IMG-20260202-WA0074.jpg', caption: 'You bring peace to my soul 🌿', likes: 21 },
   { id: 25, file: 'IMG-20260202-WA0075.jpg', caption: 'My queen, always and forever 👑❤️', likes: 29 },
   { id: 26, file: 'IMG-20260202-WA0076.jpg', caption: 'Forever grateful to have you 💫', likes: 22 },
   { id: 27, file: 'IMG-20260202-WA0077.jpg', caption: 'A spark of pure joy ✨', likes: 17 },
   { id: 28, file: 'IMG-20260202-WA0078.jpg', caption: 'Holding your hand through life 🤝', likes: 33 },
   { id: 29, file: 'IMG-20260202-WA0079.jpg', caption: 'The love of my life 💘', likes: 40 },
-  { id: 30, file: 'IMG20260115064059.jpg', caption: 'Early morning serenity 🌅', likes: 19 },
+  { id: 30, file: 'IMG20260115064059.jpg', caption: 'Serenity and peace together 🌅', likes: 19 },
   { id: 31, file: 'IMG20260115064100.jpg', caption: 'Waking up with you in my thoughts 💭', likes: 27 },
-  { id: 32, file: 'IMG20260124233454.jpg', caption: 'Night or morning, always you 🌌', likes: 35 },
+  { id: 32, file: 'IMG20260124233454.jpg', caption: 'Day or night, always you 🌌', likes: 35 },
   { id: 33, file: 'IMG20260125082306.jpg', caption: 'Pure elegance and warmth 🍯', likes: 24 },
   { id: 34, file: 'IMG20260125082316.jpg', caption: 'Your happiness is my mission 🎯💕', likes: 31 },
   { id: 35, file: 'IMG20260125082452.jpg', caption: 'Every angle is perfection 💎', likes: 28 },
@@ -47,13 +47,13 @@ const MEMORIES = [
 ];
 
 // =============================================================================
-// 2. ROMANTIC MORNING WHISPERS & REASONS
+// 2. ROMANTIC LOVE WHISPERS & REASONS
 // =============================================================================
 const MORNING_WHISPERS = [
-  "I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra this morninggg. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye.",
-  "Every morning with you is my favorite sunrise. Just knowing you're in my life makes today feel full of possibilities.",
-  "The morning sun is warm, but nothing in this universe warms my world quite like your smile.",
-  "You are the first thought on my mind when I wake up and the sweetest dream before I close my eyes.",
+  "I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra todayyy. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye.",
+  "Every moment with you is my favorite feeling. Just knowing you're in my life makes today feel full of possibilities.",
+  "The sun shines bright, but nothing in this universe warms my world quite like your smile.",
+  "You are the first thought on my mind every single day, and the sweetest dream in my heart.",
 ];
 
 const LOVE_REASONS = [
@@ -67,19 +67,19 @@ const LOVE_REASONS = [
   "Because you look utterly adorable when you're sleepy or excited.",
   "Because every song about love suddenly makes complete sense when I think of you.",
   "Because you have the biggest, gentlest heart, and I am the luckiest person to hold it.",
-  "Because waking up knowing you're in my life is the greatest gift each morning.",
+  "Because knowing you're in my life is the greatest gift in the world.",
   "Because your smile can brighten the rainiest and darkest of days."
 ];
 
 const KISS_RESPONSES = [
   "That one's right on your forehead! 💋",
-  "A big, warm morning bear hug! 🤗",
+  "A big, warm bear hug! 🤗",
   "One gentle kiss on each cheek! ✨",
   "Can't wait to wrap my arms around you! 🥰",
   "Sending 10,000 more just because you're cute! 💕",
   "A sweet butterfly kiss to tickle your smile! 🦋",
   "A loving squeeze so you know you're safe! 💖",
-  "A sunny morning peck to start your day right! ☀️"
+  "A sweet loving kiss to make you smile! ☀️"
 ];
 
 // =============================================================================
@@ -735,12 +735,76 @@ function updateSpotlightPhoto(dir) {
 // 9. INITIALIZATION & EVENT LISTENERS
 // =============================================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // 0. Romantic Preloader Controller with Progress Tracking
+  const loaderEl = document.getElementById('romanticLoader');
+  const progressBar = document.getElementById('loaderProgressBar');
+  const percentageEl = document.getElementById('loaderPercentage');
+  const statusText = document.getElementById('loaderStatusText');
+
+  const statusMessages = [
+    "Gathering our sweetest memories, please wait a moment ✨",
+    "Wrapping everything in love and warmth... 💖",
+    "Polishing our favorite moments together... 🌸",
+    "Almost ready for you, my love... 💕"
+  ];
+
+  let loadedPhotosCount = 0;
+  const totalPhotosCount = MEMORIES.length;
+  const preloaderStartTime = Date.now();
+  let isLoaderDismissed = false;
+
+  function dismissRomanticLoader() {
+    if (isLoaderDismissed) return;
+    isLoaderDismissed = true;
+
+    if (progressBar) progressBar.style.width = '100%';
+    if (percentageEl) percentageEl.textContent = '100%';
+    if (statusText) statusText.textContent = "Ready with all my love! ❤️";
+
+    // Guarantee minimum comfortable display time (1200ms) so user can read the sweet message
+    const elapsed = Date.now() - preloaderStartTime;
+    const remainingWait = Math.max(0, 1200 - elapsed);
+
+    setTimeout(() => {
+      if (loaderEl) {
+        loaderEl.classList.add('loaded');
+        setTimeout(() => {
+          loaderEl.style.display = 'none';
+        }, 850);
+      }
+    }, remainingWait);
+  }
+
+  function onPhotoPreloaded() {
+    loadedPhotosCount++;
+    const percent = Math.min(100, Math.round((loadedPhotosCount / totalPhotosCount) * 100));
+    if (progressBar) progressBar.style.width = `${percent}%`;
+    if (percentageEl) percentageEl.textContent = `${percent}%`;
+
+    if (percent > 25 && percent < 60 && statusText) {
+      statusText.textContent = statusMessages[1];
+    } else if (percent >= 60 && percent < 90 && statusText) {
+      statusText.textContent = statusMessages[2];
+    } else if (percent >= 90 && statusText) {
+      statusText.textContent = statusMessages[3];
+    }
+
+    if (loadedPhotosCount >= totalPhotosCount) {
+      dismissRomanticLoader();
+    }
+  }
+
   // Preload all 36 memories in memory cache for instantaneous rendering
   MEMORIES.forEach(m => {
     const pre = new Image();
     pre.decoding = 'async';
+    pre.onload = onPhotoPreloaded;
+    pre.onerror = onPhotoPreloaded;
     pre.src = `photos/${m.file}`;
   });
+
+  // Failsafe: dismiss after max 5 seconds so page never gets blocked
+  setTimeout(dismissRomanticLoader, 5000);
 
   // 1. Initialize Floating Photo Backdrop
   const floatingContainer = document.getElementById('floatingPhotosContainer');
