@@ -8,42 +8,42 @@
 // 1. MEMORY ARCHIVE (ALL 36 PHOTOS WITH ROMANTIC CAPTIONS)
 // =============================================================================
 const MEMORIES = [
-  { id: 1, file: 'IMG-20260111-WA0003.jpg', caption: 'The smile that lights up my universe ✨', likes: 12 },
-  { id: 2, file: 'IMG-20260111-WA0005.jpg', caption: 'My favorite person in all of existence 💕', likes: 19 },
-  { id: 3, file: 'IMG-20260111-WA0008.jpg', caption: 'Endlessly charming & adorable 🌸', likes: 15 },
-  { id: 4, file: 'IMG-20260111-WA0009.jpg', caption: 'Every second with you is a blessing 💫', likes: 21 },
-  { id: 5, file: 'IMG-20260113-WA0012.jpg', caption: 'You make my world so colorful 🌈', likes: 18 },
-  { id: 6, file: 'IMG-20260113-WA0016.jpg', caption: 'Pure sunshine wrapped in grace ☀️', likes: 25 },
-  { id: 7, file: 'IMG-20260113-WA0022.jpg', caption: 'That magical look in your eyes ✨', likes: 14 },
-  { id: 8, file: 'IMG-20260113-WA0024.jpg', caption: 'Falling in love all over again 🌹', likes: 28 },
-  { id: 9, file: 'IMG-20260202-WA0021.jpg', caption: 'Laughter is sweeter with you 🥰', likes: 16 },
-  { id: 10, file: 'IMG-20260202-WA0024.jpg', caption: 'My forever happy place 🏡❤️', likes: 22 },
-  { id: 11, file: 'IMG-20260202-WA0025.jpg', caption: 'Cute beyond measure 🐰', likes: 17 },
-  { id: 12, file: 'IMG-20260202-WA0028.jpg', caption: 'You make every day feel like poetry 📖', likes: 20 },
-  { id: 13, file: 'IMG-20260202-WA0052.jpg', caption: 'My heart beats only for you 💓', likes: 31 },
-  { id: 14, file: 'IMG-20260202-WA0063.jpg', caption: 'Sweetest moments together 🍰', likes: 13 },
-  { id: 15, file: 'IMG-20260202-WA0065.jpg', caption: 'Unforgettable magic 🌟', likes: 19 },
-  { id: 16, file: 'IMG-20260202-WA0066.jpg', caption: 'You are my greatest adventure 🚀', likes: 24 },
-  { id: 17, file: 'IMG-20260202-WA0067.jpg', caption: 'The prettiest flower in the garden 🌺', likes: 27 },
-  { id: 18, file: 'IMG-20260202-WA0068.jpg', caption: 'Warmest hugs, sweetest soul 🤗', likes: 23 },
-  { id: 19, file: 'IMG-20260202-WA0069.jpg', caption: 'Can never get enough of your smile 😊', likes: 30 },
-  { id: 20, file: 'IMG-20260202-WA0070.jpg', caption: 'Cherishing you every single day 💖', likes: 18 },
-  { id: 21, file: 'IMG-20260202-WA0071.jpg', caption: 'Golden memories with my girl 👑', likes: 26 },
-  { id: 22, file: 'IMG-20260202-WA0072.jpg', caption: 'My dream come true 🌙', likes: 34 },
-  { id: 23, file: 'IMG-20260202-WA0073.jpg', caption: 'The sweetest golden light 🕊️', likes: 15 },
-  { id: 24, file: 'IMG-20260202-WA0074.jpg', caption: 'You bring peace to my soul 🌿', likes: 21 },
-  { id: 25, file: 'IMG-20260202-WA0075.jpg', caption: 'My queen, always and forever 👑❤️', likes: 29 },
-  { id: 26, file: 'IMG-20260202-WA0076.jpg', caption: 'Forever grateful to have you 💫', likes: 22 },
-  { id: 27, file: 'IMG-20260202-WA0077.jpg', caption: 'A spark of pure joy ✨', likes: 17 },
-  { id: 28, file: 'IMG-20260202-WA0078.jpg', caption: 'Holding your hand through life 🤝', likes: 33 },
-  { id: 29, file: 'IMG-20260202-WA0079.jpg', caption: 'The love of my life 💘', likes: 40 },
-  { id: 30, file: 'IMG20260115064059.jpg', caption: 'Serenity and peace together 🌅', likes: 19 },
-  { id: 31, file: 'IMG20260115064100.jpg', caption: 'Waking up with you in my thoughts 💭', likes: 27 },
-  { id: 32, file: 'IMG20260124233454.jpg', caption: 'Day or night, always you 🌌', likes: 35 },
-  { id: 33, file: 'IMG20260125082306.jpg', caption: 'Pure elegance and warmth 🍯', likes: 24 },
-  { id: 34, file: 'IMG20260125082316.jpg', caption: 'Your happiness is my mission 🎯💕', likes: 31 },
-  { id: 35, file: 'IMG20260125082452.jpg', caption: 'Every angle is perfection 💎', likes: 28 },
-  { id: 36, file: 'IMG20260125082515.jpg', caption: 'To infinity and beyond with you 🚀❤️', likes: 45 }
+  { id: 1, file: 'IMG-20260111-WA0003.webp', caption: 'The smile that lights up my universe ✨', likes: 12 },
+  { id: 2, file: 'IMG-20260111-WA0005.webp', caption: 'My favorite person in all of existence 💕', likes: 19 },
+  { id: 3, file: 'IMG-20260111-WA0008.webp', caption: 'Endlessly charming & adorable 🌸', likes: 15 },
+  { id: 4, file: 'IMG-20260111-WA0009.webp', caption: 'Every second with you is a blessing 💫', likes: 21 },
+  { id: 5, file: 'IMG-20260113-WA0012.webp', caption: 'You make my world so colorful 🌈', likes: 18 },
+  { id: 6, file: 'IMG-20260113-WA0016.webp', caption: 'Pure sunshine wrapped in grace ☀️', likes: 25 },
+  { id: 7, file: 'IMG-20260113-WA0022.webp', caption: 'That magical look in your eyes ✨', likes: 14 },
+  { id: 8, file: 'IMG-20260113-WA0024.webp', caption: 'Falling in love all over again 🌹', likes: 28 },
+  { id: 9, file: 'IMG-20260202-WA0021.webp', caption: 'Laughter is sweeter with you 🥰', likes: 16 },
+  { id: 10, file: 'IMG-20260202-WA0024.webp', caption: 'My forever happy place 🏡❤️', likes: 22 },
+  { id: 11, file: 'IMG-20260202-WA0025.webp', caption: 'Cute beyond measure 🐰', likes: 17 },
+  { id: 12, file: 'IMG-20260202-WA0028.webp', caption: 'You make every day feel like poetry 📖', likes: 20 },
+  { id: 13, file: 'IMG-20260202-WA0052.webp', caption: 'My heart beats only for you 💓', likes: 31 },
+  { id: 14, file: 'IMG-20260202-WA0063.webp', caption: 'Sweetest moments together 🍰', likes: 13 },
+  { id: 15, file: 'IMG-20260202-WA0065.webp', caption: 'Unforgettable magic 🌟', likes: 19 },
+  { id: 16, file: 'IMG-20260202-WA0066.webp', caption: 'You are my greatest adventure 🚀', likes: 24 },
+  { id: 17, file: 'IMG-20260202-WA0067.webp', caption: 'The prettiest flower in the garden 🌺', likes: 27 },
+  { id: 18, file: 'IMG-20260202-WA0068.webp', caption: 'Warmest hugs, sweetest soul 🤗', likes: 23 },
+  { id: 19, file: 'IMG-20260202-WA0069.webp', caption: 'Can never get enough of your smile 😊', likes: 30 },
+  { id: 20, file: 'IMG-20260202-WA0070.webp', caption: 'Cherishing you every single day 💖', likes: 18 },
+  { id: 21, file: 'IMG-20260202-WA0071.webp', caption: 'Golden memories with my girl 👑', likes: 26 },
+  { id: 22, file: 'IMG-20260202-WA0072.webp', caption: 'My dream come true 🌙', likes: 34 },
+  { id: 23, file: 'IMG-20260202-WA0073.webp', caption: 'The sweetest golden light 🕊️', likes: 15 },
+  { id: 24, file: 'IMG-20260202-WA0074.webp', caption: 'You bring peace to my soul 🌿', likes: 21 },
+  { id: 25, file: 'IMG-20260202-WA0075.webp', caption: 'My queen, always and forever 👑❤️', likes: 29 },
+  { id: 26, file: 'IMG-20260202-WA0076.webp', caption: 'Forever grateful to have you 💫', likes: 22 },
+  { id: 27, file: 'IMG-20260202-WA0077.webp', caption: 'A spark of pure joy ✨', likes: 17 },
+  { id: 28, file: 'IMG-20260202-WA0078.webp', caption: 'Holding your hand through life 🤝', likes: 33 },
+  { id: 29, file: 'IMG-20260202-WA0079.webp', caption: 'The love of my life 💘', likes: 40 },
+  { id: 30, file: 'IMG20260115064059.webp', caption: 'Serenity and peace together 🌅', likes: 19 },
+  { id: 31, file: 'IMG20260115064100.webp', caption: 'Waking up with you in my thoughts 💭', likes: 27 },
+  { id: 32, file: 'IMG20260124233454.webp', caption: 'Day or night, always you 🌌', likes: 35 },
+  { id: 33, file: 'IMG20260125082306.webp', caption: 'Pure elegance and warmth 🍯', likes: 24 },
+  { id: 34, file: 'IMG20260125082316.webp', caption: 'Your happiness is my mission 🎯💕', likes: 31 },
+  { id: 35, file: 'IMG20260125082452.webp', caption: 'Every angle is perfection 💎', likes: 28 },
+  { id: 36, file: 'IMG20260125082515.webp', caption: 'To infinity and beyond with you 🚀❤️', likes: 45 }
 ];
 
 // =============================================================================
@@ -138,7 +138,7 @@ class FloatingBackdrop {
       el.style.height = `${dims.height}px`;
 
       el.innerHTML = `
-        <img src="photos/${mem.file}" alt="${mem.caption}" loading="eager" decoding="async">
+        <img src="photos/${mem.file}" alt="${mem.caption}" loading="${index < 8 ? 'eager' : 'lazy'}" decoding="async">
         <span class="photo-caption-tag">${mem.caption}</span>
       `;
 
@@ -735,22 +735,15 @@ function updateSpotlightPhoto(dir) {
 // 9. INITIALIZATION & EVENT LISTENERS
 // =============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. Romantic Preloader Controller with Progress Tracking
+  // 0. Ultra-Fast Romantic Preloader (Instant <500ms reveal)
   const loaderEl = document.getElementById('romanticLoader');
   const progressBar = document.getElementById('loaderProgressBar');
   const percentageEl = document.getElementById('loaderPercentage');
   const statusText = document.getElementById('loaderStatusText');
 
-  const statusMessages = [
-    "Gathering our sweetest memories, please wait a moment ✨",
-    "Wrapping everything in love and warmth... 💖",
-    "Polishing our favorite moments together... 🌸",
-    "Almost ready for you, my love... 💕"
-  ];
-
-  let loadedPhotosCount = 0;
-  const totalPhotosCount = MEMORIES.length;
-  const preloaderStartTime = Date.now();
+  // Preload only the first 6 key memories (~160 KB total) so screen unveils instantly
+  const INITIAL_BATCH_COUNT = 6;
+  let loadedInitialCount = 0;
   let isLoaderDismissed = false;
 
   function dismissRomanticLoader() {
@@ -761,50 +754,52 @@ document.addEventListener('DOMContentLoaded', () => {
     if (percentageEl) percentageEl.textContent = '100%';
     if (statusText) statusText.textContent = "Ready with all my love! ❤️";
 
-    // Guarantee minimum comfortable display time (1200ms) so user can read the sweet message
-    const elapsed = Date.now() - preloaderStartTime;
-    const remainingWait = Math.max(0, 1200 - elapsed);
-
     setTimeout(() => {
       if (loaderEl) {
         loaderEl.classList.add('loaded');
         setTimeout(() => {
           loaderEl.style.display = 'none';
-        }, 850);
+        }, 500);
       }
-    }, remainingWait);
+    }, 200);
   }
 
-  function onPhotoPreloaded() {
-    loadedPhotosCount++;
-    const percent = Math.min(100, Math.round((loadedPhotosCount / totalPhotosCount) * 100));
+  function onInitialPhotoPreloaded() {
+    loadedInitialCount++;
+    const percent = Math.min(100, Math.round((loadedInitialCount / INITIAL_BATCH_COUNT) * 100));
     if (progressBar) progressBar.style.width = `${percent}%`;
     if (percentageEl) percentageEl.textContent = `${percent}%`;
 
-    if (percent > 25 && percent < 60 && statusText) {
-      statusText.textContent = statusMessages[1];
-    } else if (percent >= 60 && percent < 90 && statusText) {
-      statusText.textContent = statusMessages[2];
-    } else if (percent >= 90 && statusText) {
-      statusText.textContent = statusMessages[3];
+    if (percent > 40 && percent < 90 && statusText) {
+      statusText.textContent = "Wrapping everything in love... 💖";
     }
 
-    if (loadedPhotosCount >= totalPhotosCount) {
+    if (loadedInitialCount >= INITIAL_BATCH_COUNT) {
       dismissRomanticLoader();
     }
   }
 
-  // Preload all 36 memories in memory cache for instantaneous rendering
-  MEMORIES.forEach(m => {
+  // Preload first 6 critical WebP photos immediately
+  MEMORIES.slice(0, INITIAL_BATCH_COUNT).forEach(m => {
     const pre = new Image();
     pre.decoding = 'async';
-    pre.onload = onPhotoPreloaded;
-    pre.onerror = onPhotoPreloaded;
+    pre.onload = onInitialPhotoPreloaded;
+    pre.onerror = onInitialPhotoPreloaded;
     pre.src = `photos/${m.file}`;
   });
 
-  // Failsafe: dismiss after max 5 seconds so page never gets blocked
-  setTimeout(dismissRomanticLoader, 5000);
+  // Strict failsafe: unveil after max 1.2s under any circumstances
+  setTimeout(dismissRomanticLoader, 1200);
+
+  // Background idle preloading for remaining memories without blocking UI
+  const scheduleIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 500));
+  scheduleIdle(() => {
+    MEMORIES.slice(INITIAL_BATCH_COUNT).forEach(m => {
+      const pre = new Image();
+      pre.decoding = 'async';
+      pre.src = `photos/${m.file}`;
+    });
+  });
 
   // 1. Initialize Floating Photo Backdrop
   const floatingContainer = document.getElementById('floatingPhotosContainer');
