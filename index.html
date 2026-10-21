@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Good Morning, My Love ☀️ Wish You Were Here</title>
+  <meta name="description" content="A romantic good morning webpage with floating memories, Pink Floyd Wish You Were Here, and a heartfelt message for my love.">
+  
+  <!-- Romantic Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Atmospheric Canvas (Petals, Sparkles, Floating Hearts) -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Interactive Cursor Trail Sparkles -->
+  <div id="cursorTrailContainer"></div>
+
+  <!-- Sunrise Aurora Glow Background Effects -->
+  <div class="sun-aurora"></div>
+  <div class="sun-flare"></div>
+  <div class="ambient-glow orb-1"></div>
+  <div class="ambient-glow orb-2"></div>
+  <div class="ambient-glow orb-3"></div>
+
+  <!-- Dynamic Floating Photos Backdrop (All 36 Photos with Mobile-Optimized Physics) -->
+  <div id="floatingPhotosContainer" class="floating-photos-container" aria-hidden="true"></div>
+
+  <!-- Gentle Translucent Scenic Overlay (Keeps Photos Vivid) -->
+  <div class="scenic-overlay" id="scenicOverlay"></div>
+
+  <!-- Audio Player for User's Trimmed Song: Video Project 1.m4a (Pink Floyd - Wish You Were Here) -->
+  <audio id="pinkFloydAudio" preload="auto" loop playsinline>
+    <source src="Video%20Project%201.m4a" type="audio/mp4">
+    <source src="audio_trimmed.m4a" type="audio/mp4">
+  </audio>
+
+  <!-- Top Navigation / Ambient Controls Bar -->
+  <header class="top-nav">
+    <div class="brand-pill">
+      <span class="pulse-heart">❤️</span>
+      <span class="brand-text">For My Favorite Person</span>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Music Serenade Toggle: Wish You Were Here by Pink Floyd 1975 -->
+      <button id="musicToggleBtn" class="pill-btn music-btn pink-floyd-btn" title="Play Pink Floyd - Wish You Were Here (1975)">
+        <span class="music-icon" id="musicIcon">🎸</span>
+        <span class="music-label">Wish You Were Here (1975)</span>
+        <div class="sound-wave" id="soundWave">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+
+      <!-- Quick Photos Focus Toggle (Hides/Shows Card to Admire Floating Photos) -->
+      <button id="backdropToggleBtn" class="pill-btn photos-toggle-btn" title="Toggle Floating Photos Focus">
+        <span id="backdropIcon">👁️</span>
+        <span class="btn-text-short">Photos</span>
+      </button>
+
+      <!-- Photo Album Trigger -->
+      <button id="albumTriggerBtn" class="pill-btn highlight" title="Browse All Memories">
+        <span>📸 Scrapbook</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Central Experience: The Morning Love Sanctuary (Ultra-Translucent Morphy Glass) -->
+  <main class="hero-container" id="heroContainer">
+    <div class="love-card morphy-glass card-minimized" id="mainLoveCard">
+      <!-- Card Header Utilities -->
+      <div class="card-top-bar">
+        <!-- Morning Badge -->
+        <div class="morning-badge">
+          <span class="sun-spin">☀️</span>
+          <span class="date-string" id="currentDateStr">A Brand New Morning</span>
+          <span class="sparkle">✨</span>
+        </div>
+
+        <!-- Quick Peek Photos Button -->
+        <button id="minimizeCardBtn" class="minimize-card-btn" title="Minimize card to admire floating photos">
+          <span>👓 Full Photos</span>
+        </button>
+      </div>
+
+      <!-- Main Headline with Editable Sweet Name -->
+      <h1 class="hero-greeting">
+        Good Morning,
+        <span class="partner-name-wrapper" title="Click to customize nickname">
+          <span id="partnerNameDisplay" class="partner-name">My Love</span>
+          <button id="editNameBtn" class="edit-name-btn" aria-label="Edit Nickname">✎</button>
+        </span>
+      </h1>
+
+      <p class="hero-subtitle" id="greetingTimeText">
+        The world just woke up, but you've been shining in my heart all night.
+      </p>
+
+      <!-- The Daily Morning Whisper (Featuring Your Heartfelt Morning Message) -->
+      <div class="whisper-card morphy-inner-glass">
+        <div class="whisper-quote-mark left">“</div>
+        <p class="whisper-text" id="whisperText">
+          I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra this morninggg. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye.
+        </p>
+        <div class="whisper-quote-mark right">”</div>
+        <button id="nextWhisperBtn" class="next-whisper-btn" title="Get another sweet morning thought">
+          <span class="shuffle-icon">↻</span> Another Love Note
+        </button>
+      </div>
+
+      <!-- Song Dedication Pill -->
+      <div class="song-dedication-tag" id="songDedicationTag">
+        <span>🎸</span> <em>Listening to Pink Floyd • Wish You Were Here (1975) thinking of you</em>
+      </div>
+
+      <!-- Quick Interactive Actions -->
+      <div class="card-action-grid">
+        <!-- Open Love Letter -->
+        <button id="openLetterBtn" class="action-btn letter-btn morphy-btn">
+          <span class="btn-icon">💌</span>
+          <div class="btn-text">
+            <strong>Love Letter</strong>
+            <small>Written for you</small>
+          </div>
+        </button>
+
+        <!-- Send Morning Hugs & Kisses -->
+        <button id="sendKissBtn" class="action-btn kiss-btn morphy-btn">
+          <span class="btn-icon kiss-emoji">💋</span>
+          <div class="btn-text">
+            <strong>Hug & Kiss</strong>
+            <small id="kissCounterText"><span id="kissCount">0</span> sent</small>
+          </div>
+        </button>
+
+        <!-- Daily Love Reason -->
+        <button id="reasonBtn" class="action-btn reason-btn morphy-btn">
+          <span class="btn-icon">✨</span>
+          <div class="btn-text">
+            <strong>Why I Love You</strong>
+            <small>Daily reminder</small>
+          </div>
+        </button>
+      </div>
+
+      <!-- Bottom Status Bar -->
+      <div class="card-footer">
+        <span class="footer-tag">
+          <span class="floating-badge-dot"></span>
+          <span id="floatingCountLabel">36 Floating Memories</span>
+        </span>
+        <span class="footer-hint">Tap any photo to view ✨</span>
+      </div>
+    </div>
+
+    <!-- Floating Center Pill: Click to open message and start music -->
+    <div class="minimized-pill morphy-glass" id="minimizedCardPill">
+      <span class="pulse-heart">❤️</span>
+      <span class="pill-msg">Good Morning, <strong class="letter-name-var">My Love</strong> ☀️</span>
+      <button id="restoreCardBtn" class="restore-card-btn">Open Message 💌</button>
+    </div>
+  </main>
+
+  <!-- MODAL: Handwritten Morning Love Letter (Translucent Morphy Glass Parchment) -->
+  <div class="modal-overlay" id="letterModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeLetterBackdrop"></div>
+    <div class="letter-modal-content">
+      <button class="modal-close-btn" id="closeLetterBtn" aria-label="Close Letter">✕</button>
+      
+      <div class="vintage-envelope morphy-parchment" id="envelopeWrapper">
+        <div class="wax-seal" id="waxSeal">
+          <div class="seal-inner">❤️</div>
+        </div>
+        
+        <div class="letter-paper">
+          <div class="letter-header">
+            <span class="letter-date" id="letterDateDisplay">Morning Sunrise</span>
+            <span class="letter-salutation">My Dearest <span class="letter-name-var">Love</span>,</span>
+          </div>
+
+          <div class="letter-body">
+            <!-- Dedicated Love Message Highlight -->
+            <div class="heartfelt-highlight-box">
+              <span class="heart-spark">💖</span>
+              <p class="highlight-text">
+                "I love youuu so so muchhh meri jaan 😚❤️ Missing you a little extra this morninggg. Kaash distance ki jagah mai tere paas hota aur tujhe bata pata ki tu kitni pyaari hai mere liye."
+              </p>
+            </div>
+
+            <p>
+              I wanted this to be the very first thing that brings a soft, warm smile to your face today. Even miles away, every heartbeat of mine whispers your name.
+            </p>
+            <p>
+              Before the rush of the world begins, before meetings, errands, and notifications take over your day—take a slow, deep breath and remember how deeply, endlessly loved you are.
+            </p>
+            <p>
+              Every single picture floating behind this letter is a little piece of magic we’ve shared. Your laughter, your kindness, the way you light up any room without even trying—it’s my favorite wonder in this whole world.
+            </p>
+            <p>
+              Have the most wonderful morning, eat something yummy, and conquer your day knowing that someone right here is always cheering for you, missing you, and loving you more than words could ever fit on a page.
+            </p>
+          </div>
+
+          <div class="letter-signature">
+            <span>Always & Forever Yours,</span>
+            <div class="signature-cursive">With all my heart 💕</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Full Scrapbook / Memory Gallery (Translucent Morphy Glass) -->
+  <div class="modal-overlay" id="albumModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeAlbumBackdrop"></div>
+    <div class="album-modal-content morphy-glass-dark">
+      <div class="album-header">
+        <div>
+          <h2 class="album-title">Our Memory Scrapbook 🌸</h2>
+          <p class="album-desc">Every smile, every glance, every cherished second together.</p>
+        </div>
+        <button class="modal-close-btn" id="closeAlbumBtn" aria-label="Close Scrapbook">✕</button>
+      </div>
+
+      <div class="album-grid" id="albumGrid">
+        <!-- Rendered dynamically for all 36 photos -->
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX: High-Res Memory Spotlight Viewer (Translucent Morphy Frame) -->
+  <div class="modal-overlay" id="spotlightModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeSpotlightBackdrop"></div>
+    <div class="spotlight-content">
+      <button class="modal-close-btn" id="closeSpotlightBtn" aria-label="Close Spotlight">✕</button>
+      
+      <div class="spotlight-frame morphy-light-glass">
+        <div class="polaroid-pin">📍</div>
+        <div class="spotlight-img-wrap">
+          <img id="spotlightImg" src="" alt="Romantic Memory" loading="eager">
+        </div>
+        <div class="spotlight-caption-area">
+          <span class="spotlight-caption" id="spotlightCaption">You make my heart smile</span>
+          <div class="spotlight-controls">
+            <button id="prevPhotoBtn" class="nav-circle-btn" aria-label="Previous Photo">‹</button>
+            <button id="heartPhotoBtn" class="spotlight-like-btn" title="Love this memory">
+              <span id="spotlightHeartIcon">🤍</span> <span id="spotlightLikeCount">1</span>
+            </button>
+            <button id="nextPhotoBtn" class="nav-circle-btn" aria-label="Next Photo">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP: Reason I Love You (Translucent Morphy Draw) -->
+  <div class="modal-overlay" id="reasonModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeReasonBackdrop"></div>
+    <div class="reason-modal-content">
+      <button class="modal-close-btn" id="closeReasonBtn" aria-label="Close Note">✕</button>
+      <div class="reason-card-box morphy-glass-card">
+        <div class="reason-icon-burst">✨💖✨</div>
+        <span class="reason-number" id="reasonNumber">Reason #24</span>
+        <h3 class="reason-title" id="reasonText">Because your smile can turn my hardest day into pure sunlight.</h3>
+        <p class="reason-sub">And that’s just one of a million reasons why I adore you.</p>
+        <button id="anotherReasonBtn" class="pill-btn highlight-large">Draw Another Reason 💫</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Heart Burst Particle Canvas -->
+  <div id="heartBurstContainer"></div>
+
+  <!-- Edit Name Modal / Prompt Dialog -->
+  <div class="modal-overlay" id="nameModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeNameBackdrop"></div>
+    <div class="name-modal-content morphy-glass-dark">
+      <h3>What should I call you? 🥰</h3>
+      <p>Enter your favorite nickname:</p>
+      <input type="text" id="nameInput" placeholder="e.g. Beautiful, Guddu, My Sunshine, Babe" maxlength="24">
+      <div class="name-modal-actions">
+        <button id="cancelNameBtn" class="pill-btn">Cancel</button>
+        <button id="saveNameBtn" class="pill-btn highlight">Save Nickname 💕</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
